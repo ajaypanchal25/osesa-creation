@@ -1357,3 +1357,58 @@ nav a:hover {
         display: flex !important;
     }
 }
+/* FINAL MOBILE MENU BUTTON FIX */
+
+.menu-toggle {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+
+    header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    header .menu-toggle {
+        display: flex !important;
+        position: absolute !important;
+        right: 15px !important;
+        top: 10px !important;
+
+        width: 45px !important;
+        height: 45px !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: #ffc107 !important;
+        border: 0 !important;
+        border-radius: 8px !important;
+
+        color: #050914 !important;
+        font-size: 0 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 999999 !important;
+    }
+
+    header .menu-toggle::before {
+        content: "☰" !important;
+        font-size: 28px !important;
+        font-weight: bold !important;
+        color: #050914 !important;
+        line-height: 1 !important;
+    }
+
+    header nav {
+        display: none !important;
+    }
+
+    header nav.active {
+        display: flex !important;
+    }
+}
