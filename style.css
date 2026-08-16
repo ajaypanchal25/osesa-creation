@@ -1258,5 +1258,58 @@ nav a:hover {
     .contact-cards {
         grid-template-columns: 1fr;
     }
+    /* ================= MOBILE MENU BUTTON ================= */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 5px 8px;
+    margin-left: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        color: #ffc107 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative;
+        z-index: 10001;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 12px;
+        padding: 10px 0;
+        background: rgba(5, 9, 20, 0.98);
+    }
+
+    header nav.active {
+        display: flex !important;
+    }
+
+    header nav a {
+        display: block;
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
+    }
+}
 
 }
