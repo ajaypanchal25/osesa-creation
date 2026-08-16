@@ -1313,3 +1313,47 @@ nav a:hover {
 }
 
 }
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        width: 48px !important;
+        height: 48px !important;
+        background: #ffc107 !important;
+        color: #050914 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-size: 30px !important;
+        font-weight: bold !important;
+        line-height: 48px !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin-left: auto !important;
+        cursor: pointer !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 99999 !important;
+    }
+
+    header nav {
+        display: none !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        order: 10 !important;
+    }
+
+    header nav.active {
+        display: flex !important;
+    }
+}
