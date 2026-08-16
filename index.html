@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSESA CREATION</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<!-- FULL SCREEN IMAGE VIEWER -->
+
+<div class="image-viewer" id="imageViewer">
+
+    <span class="close-btn" onclick="closeImage()">&times;</span>
+
+    <img id="fullImage" src="" alt="Full Portfolio Image">
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const portfolioImages = document.querySelectorAll(".portfolio-item img");
+    const imageViewer = document.getElementById("imageViewer");
+    const fullImage = document.getElementById("fullImage");
+
+    portfolioImages.forEach(function (image) {
+
+        image.addEventListener("click", function () {
+
+            fullImage.src = image.src;
+            imageViewer.style.display = "flex";
+
+        });
+
+    });
+
+    // Close button
+    window.closeImage = function () {
+
+        imageViewer.style.display = "none";
+        fullImage.src = "";
+
+    };
+
+    // Click outside image to close
+    imageViewer.addEventListener("click", function (event) {
+
+        if (event.target === imageViewer) {
+            closeImage();
+        }
+
+    });
+
+});
+</script>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">
+        <img src="logo.png.jpeg"> 
+        <h2>OSESA CREATION</h2>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="whatsapp" href="https://wa.me/918980689056" target="_blank">WhatsApp</a>
+</header>
+
+
+</section>
+
+<!-- HOME SECTION -->
+<section id="home" class="home-section">
+
+    <div class="home-content">
+
+        <div class="home-text">
+            <span class="home-small-title">WELCOME TO OSESA CREATION</span>
+
+            <h1>
+                CREATIVE IDEAS<br>
+                <span>THAT INSPIRE</span>
+            </h1>
+
+            <p>
+                Poster Design • Logo Design • Branding • Social Media Design
+            </p>
+
+            <a href="#portfolio" class="home-btn">
+                VIEW OUR WORK
+            </a>
+        </div>
+
+        <div class="home-logo-box">
+            <div class="home-logo-circle">
+                <img src="logo.png.jpeg" alt="OSESA CREATION">
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+
+    <h2>About OSESA CREATION</h2>
+
+    <p class="about-intro">
+        We are OSESA CREATION, a creative graphic design studio
+        focused on turning ideas into powerful visual designs.
+    </p>
+
+    <p class="about-text">
+        We create professional posters, logos, social media creatives,
+        branding materials and custom graphic designs for businesses,
+        brands, artists and individuals.
+    </p>
+
+    <div class="about-highlights">
+
+        <div class="about-box">
+            <h3>Creative</h3>
+            <p>Unique and creative designs made for your brand.</p>
+        </div>
+
+        <div class="about-box">
+            <h3>Professional</h3>
+            <p>Clean, modern and professional visual designs.</p>
+        </div>
+
+        <div class="about-box">
+            <h3>Quality</h3>
+            <p>Attention to detail and quality in every design.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+
+    <h2>Our Services</h2>
+
+    <p class="services-intro">
+        Professional graphic design solutions to make your brand stand out.
+    </p>
+
+    <div class="services-container">
+
+        <div class="service-card">
+            <h3>Poster Design</h3>
+            <p>Creative and attractive posters for events, businesses and promotions.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Logo Design</h3>
+            <p>Professional logos that create a unique identity for your brand.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Social Media Design</h3>
+            <p>Eye-catching creatives for Instagram, Facebook and other platforms.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Banner Design</h3>
+            <p>Professional banners and promotional designs for your business.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Branding</h3>
+            <p>Complete visual branding solutions for your business identity.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>YouTube Thumbnail</h3>
+            <p>Attractive thumbnails designed to grab attention and increase clicks.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Invitation Design</h3>
+            <p>Creative invitation designs for events and special occasions.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Custom Graphic Design</h3>
+            <p>Custom designs created according to your requirements.</p>
+        </div>
+
+    </div>
+
+</section>
+<section id="portfolio" class="portfolio-section">
+
+    <h2>Our Portfolio</h2>
+
+    <p class="portfolio-intro">
+        A selection of our recent creative work and graphic designs.
+    </p>
+
+    <div class="portfolio-grid">
+
+        <!-- PHOTO 1 -->
+        <div class="portfolio-item">
+            <img src="p1.jpg.jpeg" alt="Poster Design">
+            <div class="portfolio-overlay">
+                <h3>Poster Design</h3>
+                <p>Creative Promotional Poster</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 2 -->
+        <div class="portfolio-item">
+            <img src="p2.jpg.jpeg" alt="Social Media Design">
+            <div class="portfolio-overlay">
+                <h3>Social Media Design</h3>
+                <p>Social Media Creative</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 3 -->
+        <div class="portfolio-item">
+            <img src="p3.jpg.jpeg" alt="Poster Design">
+            <div class="portfolio-overlay">
+                <h3>Poster Design</h3>
+                <p>Professional Poster Creative</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 4 -->
+        <div class="portfolio-item">
+            <img src="p4.jpg.jpeg" alt="Graphic Design">
+            <div class="portfolio-overlay">
+                <h3>Graphic Design</h3>
+                <p>Custom Graphic Creative</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 5 -->
+        <div class="portfolio-item">
+            <img src="p5.jpg.jpeg" alt="Graphic Design">
+            <div class="portfolio-overlay">
+                <h3>Graphic Design</h3>
+                <p>Creative Poster Design</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 6 -->
+        <div class="portfolio-item">
+            <img src="p6.jpg.jpeg" alt="Graphic Design">
+            <div class="portfolio-overlay">
+                <h3>Graphic Design</h3>
+                <p>Social Media Creative</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 7 -->
+        <div class="portfolio-item">
+            <img src="p7.jpg.jpeg" alt="Graphic Design">
+            <div class="portfolio-overlay">
+                <h3>Graphic Design</h3>
+                <p>Professional Creative</p>
+            </div>
+        </div>
+
+        <!-- PHOTO 8 -->
+        <div class="portfolio-item">
+            <img src="p8.jpg.jpeg" alt="Graphic Design">
+            <div class="portfolio-overlay">
+                <h3>Graphic Design</h3>
+                <p>Custom Graphic Creative</p>
+            </div>
+        </div>
+<div class="image-viewer" id="imageViewer">
+
+    <span class="close-btn" onclick="closeImage()">&times;</span>
+
+    <img id="fullImage" src="" alt="Full Portfolio Image">
+
+</div>
+    </div>
+
+</section>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <div class="contact-heading">
+            <span>GET IN TOUCH</span>
+            <h2>Let's Create Something Amazing</h2>
+            <p>
+                Have a design project in mind? 
+                Contact OSESA CREATION and let's bring your ideas to life.
+            </p>
+        </div>
+
+        <div class="contact-cards">
+
+            <!-- PHONE -->
+            <a href="https://wa.me/918980689056"
+            target="_blank" 
+            class="contact-card">
+                <div class="contact-icon whatsapp-icon">WhatsApp</div>
+                <h3>WhatsApp Us</h3>
+                <p>8980689056</p>
+            </a>
+
+            <!-- EMAIL -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=osesacreation1011@gmail.com&su=Design%20Enquiry"
+   target="_blank"
+   class="contact-card">
+
+    <div class="contact-icon">✉️</div>
+
+    <h3>Email Us</h3>
+
+    <p>osesacreation1011@gmail.com</p>
+
+</a>
+            <!-- INSTAGRAM -->
+            <a href="https://www.Instagram.com/osesa_creation/"
+               target="_blank"
+               class="contact-card">
+                <div class="contact-icon">📸</div>
+                <h3>Instagram</h3>
+                <p>@osesa_creation</p>
+            </a>
+
+            <!-- YOUTUBE -->
+            <a href="https://YouTube.com/@osesacreation1523"
+               target="_blank"
+               class="contact-card">
+                <div class="contact-icon">▶️</div>
+                <h3>YouTube</h3>
+                <p>OSESA CREATION</p>
+            </a>
+
+        </div>
+
+        <div class="contact-bottom">
+            <h3>Ready to Start Your Project?</h3>
+            <p>Let's turn your ideas into creative designs.</p>
+
+            <a href="https://wa.me/918980689056?text=Hello%20OSESA%20CREATION,%20I%20want%20to%20discuss%20a%20design%20project."
+   target="_blank"
+   class="contact-button">
+    WhatsApp Us
+</a>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<footer class="site-footer">
+
+    <p>
+        © 2026 <strong>OSESA CREATION</strong>. All Rights Reserved.
+    </p>
+
+    <p class="footer-tagline">
+        Creative Design • Professional Quality • Trusted Service
+    </p>
+
+</footer>
+
+</body>
+</html>
