@@ -1,401 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSESA CREATION</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSESA CREATION | Poster Design & Reel Editing Studio</title>
+    <meta name="description"
+        content="OSESA CREATION - Professional Poster Design, Instagram Reel Editing, Video Editing, Social Media Creatives & Graphic Design Studio.">
 
-<link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
 </head>
-<!-- FULL SCREEN IMAGE VIEWER -->
-
-<div class="image-viewer" id="imageViewer">
-
-    <span class="close-btn" onclick="closeImage()">&times;</span>
-
-    <img id="fullImage" src="" alt="Full Portfolio Image">
-
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const portfolioImages = document.querySelectorAll(".portfolio-item img");
-    const imageViewer = document.getElementById("imageViewer");
-    const fullImage = document.getElementById("fullImage");
-
-    portfolioImages.forEach(function (image) {
-
-        image.addEventListener("click", function () {
-
-            fullImage.src = image.src;
-            imageViewer.style.display = "flex";
-
-        });
-
-    });
-
-    // Close button
-    window.closeImage = function () {
-
-        imageViewer.style.display = "none";
-        fullImage.src = "";
-
-    };
-
-    // Click outside image to close
-    imageViewer.addEventListener("click", function (event) {
-
-        if (event.target === imageViewer) {
-            closeImage();
-        }
-
-    });
-
-});
-</script>
 
 <body>
 
-<!-- NAVBAR -->
-<header>
-    <div class="logo">
-        <img src="logo.png.jpeg" alt="OSESA CREATION">
-        <h2>OSESA CREATION</h2>
-    </div>
-    <button class="menu-toggle" id="menuToggle" type=button">☰</button>
-    <nav id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <a class="whatsapp" href="https://wa.me/918980689056" target="_blank">WhatsApp</a>
-</header>
-
-
-</section>
-
-<!-- HOME SECTION -->
-<section id="home" class="home-section">
-
-    <div class="home-content">
-
-        <div class="home-text">
-            <span class="home-small-title">WELCOME TO OSESA CREATION</span>
-
-            <h1>
-                CREATIVE IDEAS<br>
-                <span>THAT INSPIRE</span>
-            </h1>
-
-            <p>
-                Poster Design • Logo Design • Branding • Social Media Design
-            </p>
-
-            <a href="#portfolio" class="home-btn">
-                VIEW OUR WORK
-            </a>
-        </div>
-
-        <div class="home-logo-box">
-            <div class="home-logo-circle">
-                <img src="logo.png.jpeg" alt="OSESA CREATION">
-            </div>
-        </div>
-
+    <!-- BACKGROUND ANIMATED MESH & PARTICLES -->
+    <div class="bg-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="grid-overlay"></div>
     </div>
 
-</section>
+    <!-- FULL SCREEN IMAGE LIGHTBOX VIEWER -->
+    <div class="image-viewer" id="imageViewer">
+        <button class="viewer-nav prev-btn" id="prevImageBtn" aria-label="Previous Image">&#10094;</button>
+        <button class="close-btn" onclick="closeImage()" aria-label="Close Lightbox">&times;</button>
 
-<!-- ABOUT -->
-<section id="about" class="about-section">
-
-    <h2>About OSESA CREATION</h2>
-
-    <p class="about-intro">
-        We are OSESA CREATION, a creative graphic design studio
-        focused on turning ideas into powerful visual designs.
-    </p>
-
-    <p class="about-text">
-        We create professional posters, logos, social media creatives,
-        branding materials and custom graphic designs for businesses,
-        brands, artists and individuals.
-    </p>
-
-    <div class="about-highlights">
-
-        <div class="about-box">
-            <h3>Creative</h3>
-            <p>Unique and creative designs made for your brand.</p>
+        <div class="viewer-content">
+            <img id="fullImage" src="" alt="Full Portfolio Image">
+            <div class="viewer-caption">
+                <h3 id="viewerTitle">Poster Design</h3>
+                <p id="viewerCategory">OSESA CREATION Artwork</p>
+                <span id="viewerCounter" class="viewer-counter">1 / 11</span>
+            </div>
         </div>
 
-        <div class="about-box">
-            <h3>Professional</h3>
-            <p>Clean, modern and professional visual designs.</p>
-        </div>
-
-        <div class="about-box">
-            <h3>Quality</h3>
-            <p>Attention to detail and quality in every design.</p>
-        </div>
-
+        <button class="viewer-nav next-btn" id="nextImageBtn" aria-label="Next Image">&#10095;</button>
     </div>
 
-</section>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <img src="logo.png.jpeg" alt="OSESA CREATION Logo" class="header-full-logo">
+        </a>
 
-<!-- SERVICES -->
-<section id="services" class="services-section">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
 
-    <h2>Our Services</h2>
+        <nav id="mainNav">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#reels" class="nav-link">Reel Edits</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
 
-    <p class="services-intro">
-        Professional graphic design solutions to make your brand stand out.
-    </p>
-
-    <div class="services-container">
-
-        <div class="service-card">
-            <h3>Poster Design</h3>
-            <p>Creative and attractive posters for events, businesses and promotions.</p>
+        <div class="nav-cta-group">
+            <button class="inquiry-nav-btn" onclick="openInquiryModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Quick Inquiry</span>
+            </button>
         </div>
+    </header>
 
-        <div class="service-card">
-            <h3>Logo Design</h3>
-            <p>Professional logos that create a unique identity for your brand.</p>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="badge-tag">
+                    <span class="pulse-dot"></span>
+                    INSTAGRAM REEL & POSTER DESIGN STUDIO
+                </div>
+
+                <h1>
+                    HIGH-IMPACT <br>
+                    <span class="gradient-text">POSTERS & REEL EDITS</span>
+                </h1>
+
+                <p class="hero-desc">
+                    We specialize in premium <strong>Event Posters</strong>, <strong>Instagram Reel Editing</strong>,
+                    <strong>Beat-Sync Motion Graphics</strong> and high-converting social media visual designs.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span>Explore Portfolio</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <button class="btn btn-inquiry" onclick="openInquiryModal()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Send Inquiry</span>
+                    </button>
+                    <a href="#reels" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <span>Reel Edits</span>
+                    </a>
+                </div>
+
+                <!-- QUICK STATS -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">150+</span>
+                        <span class="stat-lbl">Posters Designed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">80+</span>
+                        <span class="stat-lbl">Reels Edited</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-lbl">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="logo-showcase-card">
+                    <div class="glowing-ring"></div>
+                    <div class="logo-inner">
+                        <img src="logo_hero_round.png" alt="OSESA CREATION Official Round Logo">
+                    </div>
+                    <div class="logo-caption">
+                        <span class="brand-name">OSESA CREATION</span>
+                        <span class="brand-tag">Visual & Motion Design Studio</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>Social Media Design</h3>
-            <p>Eye-catching creatives for Instagram, Facebook and other platforms.</p>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">WHO WE ARE</span>
+                <h2 class="section-title">Creative Minds Behind<br><span class="gradient-text" style="display: inline-block; white-space: nowrap;">OSESA CREATION</span></h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card-main">
+                    <p class="about-lead">
+                        OSESA CREATION is a premier creative design & video editing studio. We turn your concepts,
+                        events, and brand campaigns into visually breathtaking graphic posters and viral-ready video
+                        reels.
+                    </p>
+                    <p class="about-body">
+                        Whether you need a massive event festival poster with hundreds of artist lineups, high-octane
+                        Instagram Reel edits with beat matching, or sleek corporate branding, we deliver unmatched speed
+                        and perfection.
+                    </p>
+
+                    <div class="specialization-pills">
+                        <span class="pill">🎬 Reel Editing</span>
+                        <span class="pill">🎨 Festival Posters</span>
+                        <span class="pill">⚡ Beat-Sync Edits</span>
+                        <span class="pill">📸 Social Media Creatives</span>
+                        <span class="pill">🔥 YouTube Thumbnails</span>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Creative Vision</h3>
+                        <p>Unique color palettes, typography, and dynamic compositions tailored for maximum visual
+                            impact.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Turnaround</h3>
+                        <p>High quality poster designs and reel edits delivered on time to keep your social media
+                            buzzing.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Ultra HD Quality</h3>
+                        <p>Crisp 4K graphics, sharp detail color grading, and broadcast-ready audio/video export
+                            settings.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>Banner Design</h3>
-            <p>Professional banners and promotional designs for your business.</p>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">WHAT WE OFFER</span>
+                <h2 class="section-title">Our Specialized <span class="gradient-text">Services</span></h2>
+                <p class="section-desc">Tailored design and video editing solutions built to make your brand stand out.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card highlight-service">
+                    <div class="service-badge">POPULAR</div>
+                    <div class="service-icon">🖼️</div>
+                    <h3>Poster Design</h3>
+                    <p>High-impact promotional posters for musical events, Garba festivals, concerts, shows & commercial
+                        ads.</p>
+                </div>
+
+                <div class="service-card highlight-service">
+                    <div class="service-badge">TRENDING</div>
+                    <div class="service-icon">🎬</div>
+                    <h3>Instagram Reel Editing</h3>
+                    <p>Engaging 9:16 vertical video edits with speed ramping, cinematic cuts, color grading & trending
+                        audio sync.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎵</div>
+                    <h3>Beat-Sync & Motion Video</h3>
+                    <p>Rhythmic video editing synced perfectly to bass drops, music beats, and fast-paced sound effects.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Creatives</h3>
+                    <p>Custom Instagram posts, carousels, Facebook banners, and story graphics that boost audience
+                        engagement.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>YouTube Thumbnails & Banners</h3>
+                    <p>Click-inducing high CTR thumbnails and professional channel art designed to gain more views.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏷️</div>
+                    <h3>Logo & Branding Design</h3>
+                    <p>Memorable vector logos and identity systems that reflect your brand’s core personality and style.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>Branding</h3>
-            <p>Complete visual branding solutions for your business identity.</p>
+    <!-- REEL EDITING SHOWCASE SECTION -->
+    <section id="reels" class="reels-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">MOTION & VIDEO EDITING</span>
+                <h2 class="section-title">Instagram <span class="gradient-text">Reels & Video Edits</span></h2>
+                <p class="section-desc">High-energy short-form video editing crafted for Instagram Reels & YouTube
+                    Shorts.</p>
+            </div>
+
+            <div class="reels-grid">
+                <!-- REEL CARD 1 -->
+                <div class="reel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DV_HrgxDSE8/?stkn=MXY0bXR1OGJ1aXU=', '_blank')"
+                    data-reel-url="https://www.instagram.com/reel/DV_HrgxDSE8/?stkn=MXY0bXR1OGJ1aXU=">
+                    <div class="reel-phone-mockup">
+                        <iframe class="reel-embed-iframe"
+                            src="https://www.instagram.com/reel/DV_HrgxDSE8/embed"
+                            scrolling="no" allowtransparency="true" frameborder="0"
+                            title="Ambaji Seva Camp Reel"></iframe>
+                        <div class="reel-touch-overlay">
+                            <span class="touch-badge">📱 Touch to Open on Instagram ↗</span>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <span class="reel-tag">FESTIVAL REEL EDIT</span>
+                        <h3>Ambaji Seva Camp Reel</h3>
+                        <p>Beat-synced festival motion intro, artist cuts & custom audio edit.</p>
+                        <a href="https://www.instagram.com/reel/DV_HrgxDSE8/?stkn=MXY0bXR1OGJ1aXU=" target="_blank"
+                            class="reel-insta-link" onclick="event.stopPropagation()">📱 Watch Reel on Instagram
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- REEL CARD 2 -->
+                <div class="reel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DT8B1WJCDqq/?stkn=OGNwNXE0dHB1NGpt', '_blank')"
+                    data-reel-url="https://www.instagram.com/reel/DT8B1WJCDqq/?stkn=OGNwNXE0dHB1NGpt">
+                    <div class="reel-phone-mockup">
+                        <iframe class="reel-embed-iframe"
+                            src="https://www.instagram.com/reel/DT8B1WJCDqq/embed"
+                            scrolling="no" allowtransparency="true" frameborder="0"
+                            title="Singer & Artist Promo Reel"></iframe>
+                        <div class="reel-touch-overlay">
+                            <span class="touch-badge">📱 Touch to Open on Instagram ↗</span>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <span class="reel-tag">ARTIST PROMO REEL</span>
+                        <h3>Singer & Teaser Edit</h3>
+                        <p>Cinematic color grading, speed ramped transitions & bass sync.</p>
+                        <a href="https://www.instagram.com/reel/DT8B1WJCDqq/?stkn=OGNwNXE0dHB1NGpt" target="_blank"
+                            class="reel-insta-link" onclick="event.stopPropagation()">📱 Watch Reel on Instagram
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- REEL CARD 3 -->
+                <div class="reel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DVsfmb9y-KH/?stkn=NXR3M2V6YzVscjVm', '_blank')"
+                    data-reel-url="https://www.instagram.com/reel/DVsfmb9y-KH/?stkn=NXR3M2V6YzVscjVm">
+                    <div class="reel-phone-mockup">
+                        <iframe class="reel-embed-iframe"
+                            src="https://www.instagram.com/reel/DVsfmb9y-KH/embed"
+                            scrolling="no" allowtransparency="true" frameborder="0"
+                            title="Garba & Event Highlights Reel"></iframe>
+                        <div class="reel-touch-overlay">
+                            <span class="touch-badge">📱 Touch to Open on Instagram ↗</span>
+                        </div>
+                    </div>
+                    <div class="reel-info">
+                        <span class="reel-tag">BEAT-SYNC REEL EDIT</span>
+                        <h3>Garba & Event Highlights</h3>
+                        <p>Dynamic typography overlays, beat-sync cuts & viral glitch transitions.</p>
+                        <a href="https://www.instagram.com/reel/DVsfmb9y-KH/?stkn=NXR3M2V6YzVscjVm" target="_blank"
+                            class="reel-insta-link" onclick="event.stopPropagation()">📱 Watch Reel on Instagram
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reels-cta-box">
+                <div class="reels-cta-content">
+                    <h3>Want Custom Instagram Reel Editing for Your Event or Brand?</h3>
+                    <p>Send us your footage or event posters, and we'll edit high-impact reels that go viral!</p>
+                </div>
+                <button class="btn btn-primary" onclick="openInquiryModal()">
+                    ⚡ Order Reel Edit via Inquiry
+                </button>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>YouTube Thumbnail</h3>
-            <p>Attractive thumbnails designed to grab attention and increase clicks.</p>
+    <!-- PORTFOLIO SECTION (UNIFIED ALL WORKS) -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">OUR CREATIVE SHOWCASE</span>
+                <h2 class="section-title">All Creative Works & <span class="gradient-text">Posters</span></h2>
+                <p class="section-desc">Explore all our official event posters, festival designs, and graphic artwork in
+                    high resolution.</p>
+            </div>
+
+            <!-- PORTFOLIO GRID (11 UNIQUE POSTERS - GUARANTEED NO DUPLICATES) -->
+            <div class="portfolio-grid" id="portfolioGrid">
+
+                <!-- POSTER 10 (NEW UPLOAD: FEMALE ARTISTS AMBAJI SEVA CAMP) -->
+                <div class="portfolio-item" data-category="poster">
+                    <div class="new-badge">NEW RELEASE</div>
+                    <img src="p10.jpg.jpeg" alt="Ambaji Siddhem Seva Camp Female Artists Festival Poster"
+                        data-title="Ambaji Siddhem Seva Camp Poster"
+                        data-desc="Grand Festival Lineup Poster featuring 35+ Female Artists">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">EVENT POSTER</span>
+                        <h3>Ambaji Seva Camp Poster</h3>
+                        <p>Female Artists Event Lineup Poster</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 11 (NEW UPLOAD: MALE ARTISTS AMBAJI SEVA CAMP) -->
+                <div class="portfolio-item" data-category="poster">
+                    <div class="new-badge">NEW RELEASE</div>
+                    <img src="p11.jpg.jpeg" alt="Ambaji Siddhem Seva Camp Male Artists Festival Poster"
+                        data-title="Ambaji Siddhem Seva Camp Poster"
+                        data-desc="Grand Festival Lineup Poster featuring 35+ Male Artists">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">EVENT POSTER</span>
+                        <h3>Ambaji Seva Camp Poster</h3>
+                        <p>Male Artists Event Lineup Poster</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 1 -->
+                <div class="portfolio-item" data-category="poster">
+                    <img src="p1.jpg.jpeg" alt="Creative Promotional Poster" data-title="Promotional Poster Design"
+                        data-desc="High-impact event promotional artwork">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">POSTER DESIGN</span>
+                        <h3>Promotional Poster</h3>
+                        <p>Creative Event Poster</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 2 -->
+                <div class="portfolio-item" data-category="social">
+                    <img src="p2.jpg.jpeg" alt="Social Media Design Creative" data-title="Social Media Design"
+                        data-desc="Engaging Instagram creative banner">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">SOCIAL MEDIA</span>
+                        <h3>Social Media Creative</h3>
+                        <p>Promotional Brand Graphic</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 3 -->
+                <div class="portfolio-item" data-category="poster">
+                    <img src="p3.jpg.jpeg" alt="Professional Event Poster Creative"
+                        data-title="Professional Event Poster" data-desc="Concert and musical show creative poster">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">EVENT POSTER</span>
+                        <h3>Musical Event Poster</h3>
+                        <p>Professional Artist Lineup</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 4 -->
+                <div class="portfolio-item" data-category="graphic">
+                    <img src="p4.jpg.jpeg" alt="Custom Graphic Creative" data-title="Custom Graphic Artwork"
+                        data-desc="Sleek branding artwork for digital media">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">GRAPHIC DESIGN</span>
+                        <h3>Custom Graphic Creative</h3>
+                        <p>Brand Identity Design</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 5 -->
+                <div class="portfolio-item" data-category="poster">
+                    <img src="p5.jpg.jpeg" alt="Creative Poster Design" data-title="Festival Graphic Poster"
+                        data-desc="Vibrant traditional & festive poster design">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">POSTER DESIGN</span>
+                        <h3>Festival Graphic Poster</h3>
+                        <p>Creative Promotional Design</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 6 -->
+                <div class="portfolio-item" data-category="social">
+                    <img src="p6.jpg.jpeg" alt="Social Media Creative Banner" data-title="Social Media Promo Banner"
+                        data-desc="High conversion banner creative for campaigns">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">SOCIAL MEDIA</span>
+                        <h3>Promo Banner Creative</h3>
+                        <p>Social Media Marketing Graphic</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 7 -->
+                <div class="portfolio-item" data-category="graphic">
+                    <img src="p7.jpg.jpeg" alt="Professional Graphic Artwork" data-title="Professional Graphic Design"
+                        data-desc="Clean typography and composition artwork">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">GRAPHIC DESIGN</span>
+                        <h3>Professional Graphic</h3>
+                        <p>Modern Creative Artwork</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 8 -->
+                <div class="portfolio-item" data-category="graphic">
+                    <img src="p8.jpg.jpeg" alt="Custom Branding Artwork" data-title="Custom Graphic Creative"
+                        data-desc="Tailored creative solution for clients">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">GRAPHIC DESIGN</span>
+                        <h3>Custom Branding Creative</h3>
+                        <p>High Quality Visual Artwork</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+                <!-- POSTER 9 -->
+                <div class="portfolio-item" data-category="poster">
+                    <img src="p9.jpg.jpeg" alt="Special Design Event Creative" data-title="Special Event Poster"
+                        data-desc="Detailed multi-layer composition event poster">
+                    <div class="portfolio-overlay">
+                        <span class="cat-tag">POSTER DESIGN</span>
+                        <h3>Special Event Poster</h3>
+                        <p>Detailed Festival Artwork</p>
+                        <div class="view-icon">🔍 Click to View</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>Invitation Design</h3>
-            <p>Creative invitation designs for events and special occasions.</p>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="contact-card-wrapper">
+                <div class="contact-heading">
+                    <span class="badge-tag">GET IN TOUCH</span>
+                    <h2>Let's Create <span class="gradient-text">Something Amazing</span></h2>
+                    <p>Have a poster design or reel editing project? Contact OSESA CREATION today for fast and creative
+                        designs.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- WHATSAPP -->
+                    <a href="https://wa.me/918980689056?text=Hello%20OSESA%20CREATION,%20I%20want%20to%20discuss%20a%20poster/reel%20design%20project."
+                        target="_blank" class="contact-box wa-box">
+                        <div class="contact-icon-wrapper wa-icon-bg">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                                <path
+                                    d="M12.031 0C5.393 0 0 5.393 0 12.031c0 2.124.553 4.197 1.604 6.02L.062 24l6.115-1.599c1.761.96 3.754 1.464 5.854 1.464 6.637 0 12.031-5.393 12.031-12.031C24.062 5.393 18.668 0 12.031 0zm6.915 17.067c-.287.807-1.436 1.486-2.378 1.688-.646.139-1.488.25-4.321-.924-3.626-1.503-5.962-5.187-6.143-5.428-.18-.24-1.472-1.963-1.472-3.743 0-1.78.932-2.656 1.261-3.016.329-.36.719-.45.959-.45.24 0 .48.003.689.012.222.01.52-.084.814.62.3.719 1.02 2.489 1.11 2.669.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.378.468-.54.63-.18.18-.369.378-.159.738.21.36.936 1.545 2.01 2.502 1.382 1.233 2.548 1.616 2.908 1.796.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1 0.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.197 1.677z" />
+                            </svg>
+                        </div>
+                        <h3>WhatsApp Us</h3>
+                        <p class="contact-val">+91 8980689056</p>
+                        <span class="contact-action">Instant Chat &rarr;</span>
+                    </a>
+
+                    <!-- EMAIL -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=osesacreation1011@gmail.com&su=Design%20Enquiry"
+                        target="_blank" class="contact-box">
+                        <div class="contact-icon-wrapper mail-icon-bg">✉️</div>
+                        <h3>Email Us</h3>
+                        <p class="contact-val">osesacreation1011@gmail.com</p>
+                        <span class="contact-action">Send Email &rarr;</span>
+                    </a>
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/osesa_creation/" target="_blank" class="contact-box insta-box">
+                        <div class="contact-icon-wrapper insta-icon-bg">📸</div>
+                        <h3>Instagram</h3>
+                        <p class="contact-val">@osesa_creation</p>
+                        <span class="contact-action">Follow Profile &rarr;</span>
+                    </a>
+
+                    <!-- YOUTUBE -->
+                    <a href="https://youtube.com/@osesacreation1523" target="_blank" class="contact-box yt-box">
+                        <div class="contact-icon-wrapper yt-icon-bg">▶️</div>
+                        <h3>YouTube Channel</h3>
+                        <p class="contact-val">OSESA CREATION</p>
+                        <span class="contact-action">Watch Videos &rarr;</span>
+                    </a>
+                </div>
+
+                <div class="contact-bottom-banner">
+                    <h3>Ready to Launch Your Poster or Reel Edit?</h3>
+                    <p>Click below to directly start a project conversation on WhatsApp!</p>
+                    <a href="https://wa.me/918980689056?text=Hello%20OSESA%20CREATION,%20I%20want%20to%20discuss%20a%20design/editing%20project."
+                        target="_blank" class="btn btn-primary btn-large">
+                        💬 Start Chat on WhatsApp (8980689056)
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-            <h3>Custom Graphic Design</h3>
-            <p>Custom designs created according to your requirements.</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="logo.png.jpeg" alt="OSESA CREATION Logo" class="footer-logo-img">
+                <span>OSESA CREATION</span>
+            </div>
+            <p>© 2026 <strong>OSESA CREATION</strong>. All Rights Reserved.</p>
+            <p class="footer-tagline">Professional Poster Design • Instagram Reel Editing • Video Editing • Creative
+                Branding</p>
         </div>
+    </footer>
 
+    <!-- FLOATING CTA BUTTON (ONLY INQUIRY AS REQUESTED) -->
+    <div class="floating-cta-container">
+        <button class="floating-inquiry-btn" onclick="openInquiryModal()" title="Send Quick Inquiry">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Send Inquiry</span>
+        </button>
     </div>
 
-</section>
-<section id="portfolio" class="portfolio-section">
-
-    <h2>Our Portfolio</h2>
-
-    <p class="portfolio-intro">
-        A selection of our recent creative work and graphic designs.
-    </p>
-
-    <div class="portfolio-grid">
-
-        <!-- PHOTO 1 -->
-        <div class="portfolio-item">
-            <img src="p1.jpg.jpeg" alt="Poster Design">
-            <div class="portfolio-overlay">
-                <h3>Poster Design</h3>
-                <p>Creative Promotional Poster</p>
+    <!-- INSTAGRAM REEL VIEWER MODAL -->
+    <div class="modal-overlay" id="reelModal">
+        <div class="inquiry-modal-card reel-modal-card">
+            <button class="modal-close-btn" onclick="closeReelModal()">&times;</button>
+            <div class="modal-header">
+                <span class="badge-tag">INSTAGRAM REEL EDIT SHOWCASE</span>
+                <h2 id="reelModalTitle">Instagram Reel Preview</h2>
+                <p>Created by OSESA CREATION Studio</p>
+            </div>
+            <div class="reel-modal-body">
+                <div class="reel-preview-icon">🎬</div>
+                <p class="reel-modal-desc">Click below to watch this reel directly on Instagram with full audio,
+                    beat-sync effects & HD quality!</p>
+                <div class="reel-action-buttons">
+                    <a href="https://www.instagram.com/osesa_creation/" target="_blank" id="reelModalLink"
+                        class="btn btn-primary btn-full">
+                        📱 Open & Watch Video on Instagram (@osesa_creation)
+                    </a>
+                    <button class="btn btn-inquiry btn-full" onclick="closeReelModal(); openInquiryModal();"
+                        style="margin-top: 10px;">
+                        ✨ Order Similar Reel Edit via Inquiry
+                    </button>
+                </div>
             </div>
         </div>
-
-        <!-- PHOTO 2 -->
-        <div class="portfolio-item">
-            <img src="p2.jpg.jpeg" alt="Social Media Design">
-            <div class="portfolio-overlay">
-                <h3>Social Media Design</h3>
-                <p>Social Media Creative</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 3 -->
-        <div class="portfolio-item">
-            <img src="p3.jpg.jpeg" alt="Poster Design">
-            <div class="portfolio-overlay">
-                <h3>Poster Design</h3>
-                <p>Professional Poster Creative</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 4 -->
-        <div class="portfolio-item">
-            <img src="p4.jpg.jpeg" alt="Graphic Design">
-            <div class="portfolio-overlay">
-                <h3>Graphic Design</h3>
-                <p>Custom Graphic Creative</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 5 -->
-        <div class="portfolio-item">
-            <img src="p5.jpg.jpeg" alt="Graphic Design">
-            <div class="portfolio-overlay">
-                <h3>Graphic Design</h3>
-                <p>Creative Poster Design</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 6 -->
-        <div class="portfolio-item">
-            <img src="p6.jpg.jpeg" alt="Graphic Design">
-            <div class="portfolio-overlay">
-                <h3>Graphic Design</h3>
-                <p>Social Media Creative</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 7 -->
-        <div class="portfolio-item">
-            <img src="p7.jpg.jpeg" alt="Graphic Design">
-            <div class="portfolio-overlay">
-                <h3>Graphic Design</h3>
-                <p>Professional Creative</p>
-            </div>
-        </div>
-
-        <!-- PHOTO 8 -->
-        <div class="portfolio-item">
-            <img src="p8.jpg.jpeg" alt="Graphic Design">
-            <div class="portfolio-overlay">
-                <h3>Graphic Design</h3>
-                <p>Custom Graphic Creative</p>
-            </div>
-        </div>
-<div class="image-viewer" id="imageViewer">
-
-    <span class="close-btn" onclick="closeImage()">&times;</span>
-
-    <img id="fullImage" src="" alt="Full Portfolio Image">
-
-</div>
     </div>
 
-</section>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-
-    <div class="contact-container">
-
-        <div class="contact-heading">
-            <span>GET IN TOUCH</span>
-            <h2>Let's Create Something Amazing</h2>
-            <p>
-                Have a design project in mind? 
-                Contact OSESA CREATION and let's bring your ideas to life.
-            </p>
+    <!-- QUICK PROJECT INQUIRY MODAL -->
+    <div class="modal-overlay" id="inquiryModal">
+        <div class="inquiry-modal-card">
+            <button class="modal-close-btn" onclick="closeInquiryModal()">&times;</button>
+            <div class="modal-header">
+                <span class="badge-tag">SEND AN ENQUIRY</span>
+                <h2>Start Your Project</h2>
+                <p>Fill in your details below for Poster Design or Reel Editing</p>
+            </div>
+            <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+                <div class="form-group">
+                    <label for="inquiryName">Your Name / Brand Name *</label>
+                    <input type="text" id="inquiryName" placeholder="e.g. Rahul Sharma / DJ Festival Event" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inquiryPhone">Mobile / WhatsApp No. *</label>
+                        <input type="tel" id="inquiryPhone" placeholder="+91 8980689056" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiryService">Required Service *</label>
+                        <select id="inquiryService" required>
+                            <option value="Event & Festival Poster Design">🎨 Event & Festival Poster Design</option>
+                            <option value="Instagram Reel Editing & Beat-Sync">🎬 Instagram Reel & Beat-Sync Edit
+                            </option>
+                            <option value="Video Editing & Motion Graphics">🎥 Full Video Editing & Graphics</option>
+                            <option value="Social Media Banner Design">📸 Social Media Creatives & Banners</option>
+                            <option value="Logo & Branding">✨ Custom Logo & Identity</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inquiryMessage">Project Details / Requirements</label>
+                    <textarea id="inquiryMessage" rows="3"
+                        placeholder="Describe your poster theme, event date, music, or paste your Instagram video link..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-full">
+                        🚀 Submit Inquiry on WhatsApp
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <div class="contact-cards">
-
-            <!-- PHONE -->
-            <a href="https://wa.me/918980689056"
-            target="_blank" 
-            class="contact-card">
-                <div class="contact-icon whatsapp-icon">WhatsApp</div>
-                <h3>WhatsApp Us</h3>
-                <p>8980689056</p>
-            </a>
-
-            <!-- EMAIL -->
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=osesacreation1011@gmail.com&su=Design%20Enquiry"
-   target="_blank"
-   class="contact-card">
-
-    <div class="contact-icon">✉️</div>
-
-    <h3>Email Us</h3>
-
-    <p>osesacreation1011@gmail.com</p>
-
-</a>
-            <!-- INSTAGRAM -->
-            <a href="https://www.Instagram.com/osesa_creation/"
-               target="_blank"
-               class="contact-card">
-                <div class="contact-icon">📸</div>
-                <h3>Instagram</h3>
-                <p>@osesa_creation</p>
-            </a>
-
-            <!-- YOUTUBE -->
-            <a href="https://YouTube.com/@osesacreation1523"
-               target="_blank"
-               class="contact-card">
-                <div class="contact-icon">▶️</div>
-                <h3>YouTube</h3>
-                <p>OSESA CREATION</p>
-            </a>
-
-        </div>
-
-        <div class="contact-bottom">
-            <h3>Ready to Start Your Project?</h3>
-            <p>Let's turn your ideas into creative designs.</p>
-
-            <a href="https://wa.me/918980689056?text=Hello%20OSESA%20CREATION,%20I%20want%20to%20discuss%20a%20design%20project."
-   target="_blank"
-   class="contact-button">
-    WhatsApp Us
-</a>
-            </a>
-        </div>
-
     </div>
 
-</section>
-<footer class="site-footer">
+    <!-- SCRIPTS -->
+    <script>
+        // Global Modal functions
+        function openInquiryModal() {
+            const modal = document.getElementById("inquiryModal");
+            if (modal) {
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+        }
 
-    <p>
-        © 2026 <strong>OSESA CREATION</strong>. All Rights Reserved.
-    </p>
+        function closeInquiryModal() {
+            const modal = document.getElementById("inquiryModal");
+            if (modal) {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+        }
 
-    <p class="footer-tagline">
-        Creative Design • Professional Quality • Trusted Service
-    </p>
+        function openReelModal(url, title) {
+            if (url) {
+                window.open(url, "_blank");
+            } else {
+                window.open("https://www.instagram.com/osesa_creation/", "_blank");
+            }
+        }
 
-</footer>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+        function closeReelModal() {
+            const modal = document.getElementById("reelModal");
+            if (modal) {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+        }
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById("inquiryName").value;
+            const phone = document.getElementById("inquiryPhone").value;
+            const service = document.getElementById("inquiryService").value;
+            const msg = document.getElementById("inquiryMessage").value;
 
-    menuToggle.addEventListener("click", function () {
-        mainNav.classList.toggle("active");
-    });
+            const text = `Hello OSESA CREATION,\n\n*NEW DESIGN INQUIRY:*\n👤 *Name:* ${name}\n📱 *Contact:* ${phone}\n🎯 *Service:* ${service}\n📝 *Details:* ${msg || 'N/A'}`;
 
-    mainNav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            mainNav.classList.remove("active");
+            window.open(`https://wa.me/918980689056?text=${encodeURIComponent(text)}`, '_blank');
+            closeInquiryModal();
+        }
+
+        // Close modal when clicking on background overlay
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("inquiryModal");
+            if (modal) {
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) {
+                        closeInquiryModal();
+                    }
+                });
+            }
+
+            // --- 1. DEDUPLICATION GUARANTEE SCRIPT ---
+            const portfolioItems = document.querySelectorAll(".portfolio-item");
+            const seenImages = new Set();
+
+            portfolioItems.forEach(item => {
+                const img = item.querySelector("img");
+                if (img) {
+                    const src = img.getAttribute("src");
+                    if (seenImages.has(src)) {
+                        item.remove();
+                    } else {
+                        seenImages.add(src);
+                    }
+                }
+            });
+
+            // --- 2. LIGHTBOX VIEWER WITH PREV/NEXT NAVIGATION ---
+            const imageViewer = document.getElementById("imageViewer");
+            const fullImage = document.getElementById("fullImage");
+            const viewerTitle = document.getElementById("viewerTitle");
+            const viewerCategory = document.getElementById("viewerCategory");
+            const viewerCounter = document.getElementById("viewerCounter");
+            const prevBtn = document.getElementById("prevImageBtn");
+            const nextBtn = document.getElementById("nextImageBtn");
+
+            let currentActiveList = [];
+            let currentIndex = 0;
+
+            function updateActiveList() {
+                currentActiveList = Array.from(document.querySelectorAll(".portfolio-item:not([style*='display: none'])"));
+            }
+
+            function showLightboxIndex(index) {
+                updateActiveList();
+                if (currentActiveList.length === 0) return;
+
+                if (index < 0) index = currentActiveList.length - 1;
+                if (index >= currentActiveList.length) index = 0;
+                currentIndex = index;
+
+                const currentItem = currentActiveList[currentIndex];
+                const img = currentItem.querySelector("img");
+
+                fullImage.src = img.src;
+                viewerTitle.innerText = img.getAttribute("data-title") || "Poster Artwork";
+                viewerCategory.innerText = img.getAttribute("data-desc") || "OSESA CREATION Graphic Design";
+                viewerCounter.innerText = `${currentIndex + 1} / ${currentActiveList.length}`;
+
+                imageViewer.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            }
+
+            document.querySelectorAll(".portfolio-item").forEach(item => {
+                item.addEventListener("click", function () {
+                    updateActiveList();
+                    const idx = currentActiveList.indexOf(item);
+                    showLightboxIndex(idx >= 0 ? idx : 0);
+                });
+            });
+
+            prevBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                showLightboxIndex(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                showLightboxIndex(currentIndex + 1);
+            });
+
+            window.closeImage = function () {
+                imageViewer.style.display = "none";
+                fullImage.src = "";
+                document.body.style.overflow = "auto";
+            };
+
+            imageViewer.addEventListener("click", function (event) {
+                if (event.target === imageViewer || event.target.classList.contains("viewer-content")) {
+                    closeImage();
+                }
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (imageViewer.style.display === "flex") {
+                    if (e.key === "Escape") closeImage();
+                    if (e.key === "ArrowLeft") showLightboxIndex(currentIndex - 1);
+                    if (e.key === "ArrowRight") showLightboxIndex(currentIndex + 1);
+                }
+                if (e.key === "Escape" && document.getElementById("inquiryModal").classList.contains("active")) {
+                    closeInquiryModal();
+                }
+            });
+
+            // --- 3. PORTFOLIO FILTERING ---
+            const filterBtns = document.querySelectorAll(".filter-btn");
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    const filter = btn.getAttribute("data-filter");
+                    const items = document.querySelectorAll(".portfolio-item");
+
+                    items.forEach(item => {
+                        const cat = item.getAttribute("data-category");
+                        if (filter === "all" || cat === filter) {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                });
+            });
+
+            // --- 4. MOBILE MENU TOGGLE ---
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
+            const navLinks = mainNav.querySelectorAll(".nav-link");
+
+            menuToggle.addEventListener("click", function () {
+                menuToggle.classList.toggle("active");
+                mainNav.classList.toggle("active");
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    menuToggle.classList.remove("active");
+                    mainNav.classList.remove("active");
+                });
+            });
+
+            // --- 5. REEL PLAY BUTTON SIMULATOR ---
+            document.querySelectorAll(".reel-card").forEach(card => {
+                card.addEventListener("click", function () {
+                    const img = card.querySelector("img");
+                    if (img) {
+                        fullImage.src = img.src;
+                        viewerTitle.innerText = card.querySelector("h3").innerText;
+                        viewerCategory.innerText = "Instagram Reel & Short Video Editing Showcase";
+                        viewerCounter.innerText = "Reel Preview";
+                        imageViewer.style.display = "flex";
+                    }
+                });
+            });
         });
-    });
-
-});
-</script>
-
+    </script>
 </body>
+
 </html>
